@@ -77,8 +77,11 @@ module.exports = {
       '@ui-pages': path.resolve(__dirname, './src/components/ui/pages'),
       '@utils-types': path.resolve(__dirname, './src/utils/types'),
       '@api': path.resolve(__dirname, './src/utils/burger-api.ts'),
+      '@auth': path.resolve(__dirname, './src/utils/auth.ts'),
+      '@store': path.resolve(__dirname, './src/services/store/index.ts'),
       '@slices': path.resolve(__dirname, './src/services/slices'),
-      '@selectors': path.resolve(__dirname, './src/services/selectors')
+      '@selectors': path.resolve(__dirname, './src/services/selectors'),
+      '@hooks':path.resolve(__dirname,'./src/hooks'),
     }
   },
   output: {
