@@ -3,6 +3,7 @@ import { LoginUI } from '@ui-pages';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from '@store';
 import { login } from '@slices';
+import { useForm } from '@hooks';
 
 export const Login: FC = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,8 @@ export const Login: FC = () => {
 
   const { loginError } = useSelector((state) => state.user);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { values, handleChange } = useForm({ email: '', password: '' });
+  const { email, password } = values;
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -30,9 +31,8 @@ export const Login: FC = () => {
     <LoginUI
       errorText={loginError?.message}
       email={email}
-      setEmail={setEmail}
       password={password}
-      setPassword={setPassword}
+      handleChange={handleChange}
       handleSubmit={handleSubmit}
     />
   );
